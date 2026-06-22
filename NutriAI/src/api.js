@@ -1,3 +1,3 @@
-const BASE_URL ="https://nutritrack-backend-8nbn.onrender.com/";
+const BASE_URL ="https://nutritrack-backend-8nbn.onrender.com";
 
 export default BASE_URL;
