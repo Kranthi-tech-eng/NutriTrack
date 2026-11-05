@@ -18,7 +18,7 @@ export const getNutritionFromText = async (req, res) => {
     }
 
     const completion = await client.chat.completions.create({
-      model: "llama-3.3-70b-versatile",
+      model: "qwen/qwen3.8-27b",
       temperature: 0.2,
       messages: [
         {
@@ -93,7 +93,7 @@ export const getNutritionFromImage = async (req, res) => {
     const base64Image = req.file.buffer.toString("base64");
 
     const completion = await client.chat.completions.create({
-      model: "meta-llama/llama-4-scout-17b-16e-instruct",
+      model: "qwen/qwen3.8-27b",
       messages: [
         {
           role: "user",
