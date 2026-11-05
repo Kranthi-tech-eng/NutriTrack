@@ -23,11 +23,14 @@ app.use("/api/ai", aiRoutes);
 app.get("/", (req, res) => {
   res.send("NutriTrack Backend Running");
 });
-mongoose.connect(process.env.MONGO_URI).then(()=>{
-    console.log("MongoDb Connected Succesfully")
-}).catch(()=>{
-    console.log("There is an error in connecting")
+mongoose.connect(process.env.MONGO_URI)
+.then(() => {
+    console.log("MongoDB Connected Successfully");
+    console.log("Database Name:", mongoose.connection.name);
 })
+.catch((err) => {
+    console.log("MongoDB Connection Error:", err);
+});
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

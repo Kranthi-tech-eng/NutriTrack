@@ -1,6 +1,7 @@
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import mongoose from "mongoose";
 
 export const signup = async (req, res) => {
   try {
@@ -38,7 +39,13 @@ export const login = async (req, res) => {
 
     const { email, password } = req.body;
 
-    const user = await User.findOne({ email });
+    console.log("Login Email:", email);
+console.log("Database:", mongoose.connection.name);
+console.log("Collection:", User.collection.name);
+
+const user = await User.findOne({ email });
+
+console.log("User Found:", user ? "YES" : "NO");
 
     if (!user) {
       return res.status(400).json({
